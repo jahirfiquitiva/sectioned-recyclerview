@@ -1,5 +1,6 @@
 package com.afollestad.sectionedrecyclerview;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.IntRange;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
@@ -44,17 +45,25 @@ public abstract class SectionedRecyclerViewAdapter<VH extends SectionedViewHolde
     }
     Log.d(
         TAG, "Invalidating " + sectionItemCount + " items starting at index " + sectionHeaderIndex);
-    notifyItemRangeChanged(sectionHeaderIndex, sectionItemCount);
+    notifyItemRangeChanged(sectionHeaderIndex, sectionItemCount + 1);
   }
 
   public void expandSection(int section) {
     positionManager.expandSection(section);
-    notifyDataSetChanged();
+    int headerIndex = getSectionHeaderIndex(section);
+    if (headerIndex >= 0)
+      notifyItemChanged(headerIndex);
+    int addFooters = showFooters() ? 1 : 0;
+    notifyItemRangeInserted(getAbsolutePosition(section, 0), getItemCount(section) + addFooters);
   }
 
   public void collapseSection(int section) {
     positionManager.collapseSection(section);
-    notifyDataSetChanged();
+    int headerIndex = getSectionHeaderIndex(section);
+    if (headerIndex >= 0)
+      notifyItemChanged(headerIndex);
+    int addFooters = showFooters() ? 1 : 0;
+    notifyItemRangeRemoved(getAbsolutePosition(section, 0), getItemCount(section) + addFooters);
   }
 
   public void expandAllSections() {
@@ -74,8 +83,11 @@ public abstract class SectionedRecyclerViewAdapter<VH extends SectionedViewHolde
   }
 
   public void toggleSectionExpanded(int section) {
-    positionManager.toggleSectionExpanded(section);
-    notifyDataSetChanged();
+    if (positionManager.isSectionExpanded(section)) {
+      collapseSection(section);
+    } else {
+      expandSection(section);
+    }
   }
 
   public abstract int getSectionCount();
@@ -246,18 +258,21 @@ public abstract class SectionedRecyclerViewAdapter<VH extends SectionedViewHolde
     }
   }
 
+  @SuppressLint("Range")
   @IntRange(from = 0, to = Integer.MAX_VALUE)
   public int getHeaderViewType(int section) {
     //noinspection ResourceType
     return VIEW_TYPE_HEADER;
   }
 
+  @SuppressLint("Range")
   @IntRange(from = 0, to = Integer.MAX_VALUE)
   public int getFooterViewType(int section) {
     //noinspection ResourceType
     return VIEW_TYPE_FOOTER;
   }
 
+  @SuppressLint("Range")
   @IntRange(from = 0, to = Integer.MAX_VALUE)
   public int getItemViewType(int section, int relativePosition, int absolutePosition) {
     //noinspection ResourceType
