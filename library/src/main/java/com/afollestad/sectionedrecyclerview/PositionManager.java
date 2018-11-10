@@ -1,7 +1,7 @@
 package com.afollestad.sectionedrecyclerview;
 
-import android.support.annotation.RestrictTo;
-import android.support.v4.util.ArrayMap;
+import androidx.annotation.RestrictTo;
+import androidx.collection.ArrayMap;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 class PositionManager implements SectionedViewHolder.PositionDelegate {

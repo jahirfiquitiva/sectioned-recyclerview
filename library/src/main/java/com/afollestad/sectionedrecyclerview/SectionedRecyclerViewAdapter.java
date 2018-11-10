@@ -1,12 +1,12 @@
 package com.afollestad.sectionedrecyclerview;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.IntRange;
-import android.support.annotation.Nullable;
-import android.support.annotation.RestrictTo;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import androidx.annotation.IntRange;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.ViewGroup;
 import java.util.List;
