@@ -29,10 +29,8 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:recyclerview-v7:' + versions.supportLib
-    compile 'com.android.support:support-v4:' + versions.supportLib
-    testCompile 'com.google.truth:truth:' + versions.truth
-    testCompile 'junit:junit:' + versions.junit
+    implementation 'com.android.support:recyclerview-v7:' + versions.supportLib
+    implementation 'com.android.support:support-v4:' + versions.supportLib
 }
 
 apply from: '../lib-artifacts.gradle'
