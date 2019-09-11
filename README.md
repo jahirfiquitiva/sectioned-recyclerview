@@ -3,14 +3,14 @@
 Sectioned RecyclerView allows you to easily split a RecyclerView into sections with headers and optional footers. 
 Headers can be expanded and collapsed, you can even hide empty sections. 
 
-<img src="https://raw.githubusercontent.com/afollestad/sectioned-recyclerview/master/art/showcase3.png" width="600" />
+<img src="https://raw.githubusercontent.com/jahirfiquitiva/sectioned-recyclerview/master/art/showcase3.png" width="600" />
 
 ---
 
 ## Gradle Dependency
 
 [ ![jCenter](https://api.bintray.com/packages/drummer-aidan/maven/sectioned-recyclerview/images/download.svg) ](https://bintray.com/drummer-aidan/maven/sectioned-recyclerview/_latestVersion)
-[![Build Status](https://travis-ci.org/afollestad/sectioned-recyclerview.svg)](https://travis-ci.org/afollestad/sectioned-recyclerview)
+[![Build Status](https://travis-ci.com/jahirfiquitiva/sectioned-recyclerview.svg)](https://travis-ci.com/afollestad/sectioned-recyclerview)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e05e387dc66e44b9b22113af59c2cfb7)](https://www.codacy.com/app/drummeraidan_50/sectioned-recyclerview?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=afollestad/sectioned-recyclerview&amp;utm_campaign=Badge_Grade)
 
