@@ -3,6 +3,7 @@ package com.afollestad.sectionedrecyclerview;
 import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 
+@SuppressWarnings({"BooleanMethodIsAlwaysInverted", "ConstantConditions", "WrapperTypeMayBePrimitive"})
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 class PositionManager implements SectionedViewHolder.PositionDelegate {
 

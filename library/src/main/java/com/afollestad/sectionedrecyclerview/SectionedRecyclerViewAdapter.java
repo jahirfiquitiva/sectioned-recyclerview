@@ -1,18 +1,23 @@
 package com.afollestad.sectionedrecyclerview;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
+import android.view.ViewGroup;
+
 import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import android.util.Log;
-import android.view.ViewGroup;
+
 import java.util.List;
 
-/** @author Aidan Follestad (afollestad) */
-@SuppressWarnings({"WeakerAccess", "unused"})
+/**
+ * @author Aidan Follestad (afollestad)
+ */
+@SuppressWarnings({"WeakerAccess", "FieldMayBeFinal", "unused", "JavaDoc"})
 public abstract class SectionedRecyclerViewAdapter<VH extends SectionedViewHolder>
     extends RecyclerView.Adapter<VH> implements ItemProvider {
 
@@ -168,7 +173,9 @@ public abstract class SectionedRecyclerViewAdapter<VH extends SectionedViewHolde
     return 1;
   }
 
-  /** Converts an absolute position to a relative position and section. */
+  /**
+   * Converts an absolute position to a relative position and section.
+   */
   public ItemCoord getRelativePosition(int absolutePosition) {
     return positionManager.relativePosition(absolutePosition);
   }
@@ -335,7 +342,7 @@ public abstract class SectionedRecyclerViewAdapter<VH extends SectionedViewHolde
    */
   @Deprecated
   @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-  public final void onBindViewHolder(VH holder, int position, List<Object> payloads) {
+  public final void onBindViewHolder(@NonNull VH holder, int position, @NonNull List<Object> payloads) {
     super.onBindViewHolder(holder, position, payloads);
   }
 }

@@ -1,5 +1,7 @@
 package com.afollestad.sectionedrecyclerview;
 
+import androidx.annotation.NonNull;
+
 @SuppressWarnings("WeakerAccess")
 public class ItemCoord {
 
@@ -26,6 +28,7 @@ public class ItemCoord {
         && ((ItemCoord) obj).relativePos() == relativePos();
   }
 
+  @NonNull
   @Override
   public String toString() {
     return section + ":" + relativePos;
