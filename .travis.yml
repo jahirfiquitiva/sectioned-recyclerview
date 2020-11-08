@@ -19,3 +19,25 @@ android:
     - extra-android-m2repository
   licenses:
     - '.+'
+
+before_install:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - yes | sdkmanager "platforms;android-$ANDROID_API"
+  - yes | sdkmanager "build-tools;$ANDROID_BUILD_TOOLS"
+ 
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - "$HOME/.android/build-cache"
+    - "$HOME/.m2"
+    - "$HOME/.gradle"
+    - "$HOME/.gradle/caches/"
+    - "$HOME/.gradle/wrapper/"
+
+before_script:
+  - chmod +x gradlew
+  - chmod +x gradle/wrapper/gradle-wrapper.jar
